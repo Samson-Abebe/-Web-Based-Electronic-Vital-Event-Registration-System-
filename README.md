@@ -18,10 +18,10 @@ This system is designed to **improve accessibility, reduce paperwork, and enhanc
 
 ## 🛠️ Technologies Used  
 
-- **Frontend:** HTML, CSS, JavaScript  
-- **Backend:** Flask / Django (depending on your implementation)  
-- **Database:** MySQL / PostgreSQL  
-- **Other Tools:** Bootstrap, Chart.js (if used for reporting)  
+- **Frontend:** HTML, CSS, JavaScript
+- **Backend:** Flask 
+- **Database:** MySQL 
+- **Other Tools:** Bootstrap 
 
 ---
 
@@ -61,6 +61,6 @@ This system is designed to **improve accessibility, reduce paperwork, and enhanc
 
 1. Clone the repository:  
    ```bash
-   git clone https://github.com/your-username/vital-event-registration.git
-   cd vital-event-registration
+   git clone https://github.com/Samson-Abebe/vital-event-registration.git  
+   cd web_based_electronic_vital_event_registration_system
 
