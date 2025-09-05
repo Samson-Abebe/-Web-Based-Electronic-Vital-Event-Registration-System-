@@ -25,7 +25,7 @@ This system is designed to **improve accessibility, reduce paperwork, and enhanc
 
 ---
 
-## 📂 Project Structure  
+## 📂 Project Demo
 
 ---
 
