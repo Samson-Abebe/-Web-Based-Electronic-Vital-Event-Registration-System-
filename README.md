@@ -64,3 +64,11 @@ This system is designed to **improve accessibility, reduce paperwork, and enhanc
    git clone https://github.com/Samson-Abebe/vital-event-registration.git  
    cd web_based_electronic_vital_event_registration_system
 
+
+## 🛠️ Important Setup Note
+
+When adding the **admin user manually** into the `emp` table,  
+make sure to set their **job_id = 1**.  
+This ensures the system recognizes them as an administrator.
+
+
