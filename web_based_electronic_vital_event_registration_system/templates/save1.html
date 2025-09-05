@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toast Notification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .hidden {
+            position: relative;
+            bottom: 0px;
+            right: 0;
+            background-color: #FFF;
+            color: #fff;
+            height: 35px;
+            width: 45px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .hidden button {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .hidden button:hover {
+            transform: scale(1.1); /* Slightly enlarge the button */
+            opacity: 0.8; /* Make it slightly transparent */
+        }
+
+        .hidden img {
+            width: 32px;
+			margin-left:6px;
+        }
+    </style>
+</head>
+<body>
+  
+        <form action="/download" >
+        <div id="toast" class="hidden">
+            <button type="submit"  onclick="sendData12(3)">
+                <img src="{{ url_for('static', filename='save1.JFIF') }}" alt="Dashboard Icon">
+            </button>
+        </div>
+		</form>
+     <script>
+        async function sendDsata12(X) {
+            const response = await fetch('http://localhost:5000/download', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                 body: JSON.stringify({ X: X })
+            });
+
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="admin.css"> <!-- Link to CSS file -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+	<style>
+	* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f9;
+	
+		  /* 
+		  biurred ifectes
+    transition: filter 0.3s; 
+	      filter: blur(5px);
+*/
+}
+
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 90%;
+    width: 180px;
+    background-color:white;
+    transition: width 0.3s;
+    overflow-x: hidden;
+    overflow-y: auto; 
+	
+
+	   filter: blur(5px);
+	  
+}
+.sidebar.collapsed {
+    width: 60px;
+}
+.sidebar ul {
+    list-style: none;
+    padding: 20px;
+}
+.sidebar ul li {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    color: rgb(27, 59, 27);
+}
+.sidebar ul li img {
+    width: 18px; 
+    margin-right: 10px; 
+}
+.sidebar ul li a {
+    text-decoration: none;
+    color: rgb(27, 59, 27);
+    display: flex;
+    align-items: center;
+}
+.sidebar ul li a span {
+    display: inline-block;
+    transition: opacity 0.3s;
+}
+.sidebar.collapsed ul li a span {
+    opacity: 0; 
+    width: 0; 
+    visibility: hidden;
+}
+.sidebar ul li:hover {
+    background-color:lightgrey;
+    cursor: pointer;
+}
+.sidebar .logout {
+    position: absolute;
+    bottom: 19px;
+    left: 19px;
+    display: flex;
+    align-items: center;
+}
+.sidebar .logout a {
+    color: rgb(27, 59, 27);
+    text-decoration: none;
+}
+.sidebar .logout i {
+    margin-right: 10px;
+}
+
+.navbar {
+    height: 60px;
+    background-color: #ecf0f1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    margin-left: 200px; 
+    transition: margin-left 0.3s;
+	
+
+	   filter: blur(5px);
+	 
+}
+.navbar.collapsed {
+    margin-left: 60px;
+}
+.navbar h1 {
+    font-size: 18px;
+    color: rgb(27, 59, 27);
+}
+.navbar .logo {
+    display: flex;
+    align-items: center;
+}
+.navbar .logo img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+
+.main-content {
+    margin-left: 180px; 
+    padding: 20px;
+    transition: margin-left 0.3s;
+	
+	   filter: blur(5px);
+
+	
+}
+.main-content.collapsed {
+    margin-left: 60px;
+}
+.main-content h2 {
+    color: rgb(27, 59, 27);
+}
+.intro {
+    animation: fadeIn 2s; 
+    opacity: 0; 
+    animation-fill-mode: forwards; 
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.cards-container {
+    margin-top: 18px;
+    position: relative;
+}
+.cards {
+    display: flex;
+    gap: 20px;
+}
+.card {
+    background-color: #efdecd;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    transition: transform 0.2s; 
+    position: relative; 
+}
+.card:hover {
+    transform: scale(1.05); 
+}
+.learn-more {
+    background-color:rgb(27, 59, 27);
+    color: white;
+    border: none;
+    padding: 9px 13px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 9px;
+    text-decoration: none; 
+    display: inline-block;
+}
+.learn-more:hover {
+    background-color:darkgreen;
+}
+
+
+.card:hover ~ .cards-container {
+    filter: blur(5px);
+}
+
+
+#menu-toggle {
+    font-size: 20px;
+    color: rgb(27, 59, 27);
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 60px;
+    }
+    .navbar {
+        margin-left: 60px;
+    }
+    .main-content {
+        margin-left: 60px;
+    }
+}
+</style>
+
+</head>
+<body>
+{% if BLU == 1 %}
+
+	   {% include 'javab.html' %}
+	  {%endif%}
+   
+    <div class="sidebar" id="sidebar">
+        <ul>
+		{% for slss,keyy in MU.items() :%}
+            <li>
+                <a href="/{{slss}}/data"  >
+                    <img src="{{url_for('static',filename= 'dashboard.svg')}}" alt="Dashboard Icon">
+                    <span>{{slss}}</span>
+                </a>
+            </li>
+			 {%endfor%}
+          
+        </ul>
+        <div class="logout">
+            <a href="/"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+    </div>
+
+    
+    <div class="navbar" id="navbar">
+        <div class="logo">
+            <img src="{{url_for('static',filename= 'logo.jpg')}}" alt="Logo">
+            <h1>Robe Electronics Vital Event</h1>
+        </div>
+        <i id="menu-toggle" class="fas fa-bars"></i>
+    </div>
+
+   
+    <div class="main-content" id="main-content">
+        <h2>Welcome, {{ACC["jn"]}}</h2>
+        <div class="intro">
+            <p class="animated-text">Here you can manage all vital events efficiently!</p>
+        </div>
+        <div class="cards-container">
+		
+            <div class="cards">
+			 {% if  mu1 is not mapping %}
+			 
+	         {%else%}
+			{% for slss,keyy in mu1.items() :%}
+			
+                <div class="card" id="card1">
+                    <h4>{{slss}}</h4>
+                   <p>🌟  Just tap the link below to get started:</p>
+                    <a class="learn-more" href="{{keyy}}">👉 clik</a>
+                </div>
+				 {%endfor%}
+				  {%endif%}
+               
+            </div>
+        </div>
+    </div>
+
+   	 <script>
+     const menuToggle = document.getElementById('menu-toggle');
+const sidebar = document.getElementById('sidebar');
+const navbar = document.getElementById('navbar');
+const mainContent = document.getElementById('main-content');
+
+menuToggle.addEventListener('click', () => {
+    sidebar.classList.toggle('collapsed');
+    navbar.classList.toggle('collapsed');
+    mainContent.classList.toggle('collapsed');
+});
+   function sendData() {
+            const myDiv = document.getElementById('myDiv');
+
+              myDiv.style.display = 'none';
+			  sidebar.style.filter = 'none';
+			  navbar.style.filter = 'none';
+			  mainContent.style.filter= 'none';
+			  
+			  
+			  }
+			  const T={{BLU}};
+
+			  if(T=="0"){
+			  sidebar.style.filter = 'none';
+			  navbar.style.filter = 'none';
+			  mainContent.style.filter= 'none';
+			  
+			  
+			  }
+
+    </script>
+</body>
+</html>

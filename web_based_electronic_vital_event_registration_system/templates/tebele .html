@@ -1,0 +1,140 @@
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #C1A9A9;
+            padding: 10px;
+            text-align: center;
+            color: #C1A9A9;
+        }
+        th {
+            background-color: #6f5e5c;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        tr:nth-child(even) {
+            background-color: #5a4d4c;
+        }
+        tr:nth-child(odd) {
+            background-color: #4f4b4a;
+        }
+        .search-container {
+            margin-bottom: 10px;
+			position:absolute;
+			left:45%;
+			 
+			
+        }
+        .search-container input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #C1A9A9;
+            border-radius: 4px;
+            background-color: #6f5e5c;
+            color: #C1A9A9;
+        }
+		.sefu{
+		width: 107
+		            scrollbar-width: none;
+			 
+			 overflow-x: scroll;
+			  overflow-y: hidden;
+			 
+			
+
+        }
+    </style>
+</head>
+<body>
+
+
+
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search..." onkeyup="searchTable()">
+        </div>
+		<div style="height:35px"></div>
+		<div class="sefu">
+        <table id="dataTable">
+            <thead>
+                <tr>
+                  {% for slss,keyy in TR.items() :%}
+                    <th>{{slss}}</th>
+                    {%endfor%}
+                </tr>
+            </thead>
+            <tbody>
+			 {% for slss in TC :%}
+                <tr>
+                   {% for sls,keyy in TR.items() :%}
+				   {% if   keyy == "1" %}
+                    <td>{{slss[sls]}}</td>
+					{%endif%}
+				 {% if   keyy == "2" %}
+				 
+                    <td>  {% include 'chbox.html' %}</td>
+					{%endif%}
+					
+					 {% if   keyy == "3" %}
+				 
+                    <td>  {% include 'edit.html' %}</td>
+					{%endif%}
+					 {% if   keyy == "5" %}
+				 
+                    <td>  {% include 'save.html' %}</td>
+					{%endif%}
+                     {%endfor%}
+                </tr>
+				{%endfor%}
+               
+            </tbody>
+        </table>
+		<div style="height:15px"></div>
+		 <tr>
+                  {% for slss,keyy in TR.items() :%}
+				  {%if keyy=="5"%}
+                    <th> {% include 'save1.html' %}</th>
+					{%endif%}
+                    {%endfor%}
+                </tr>
+				<div style="height:15px"></div>
+		</div>
+
+
+
+<script>
+    function searchTable() {
+        const input = document.getElementById('searchInput');
+        const filter = input.value.toLowerCase();
+        const table = document.getElementById('dataTable');
+        const tr = table.getElementsByTagName('tr');
+
+        for (let i = 1; i < tr.length; i++) {
+            let showRow = false;
+            const td = tr[i].getElementsByTagName('td');
+            for (let j = 0; j < td.length; j++) {
+                if (td[j]) {
+                    const txtValue = td[j].textContent || td[j].innerText;
+                    if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                        showRow = true;
+                        break;
+                    }
+                }
+            }
+            tr[i].style.display = showRow ? '' : 'none';
+        }
+    }
+</script>
+
+</body>
+</html>
+
+	

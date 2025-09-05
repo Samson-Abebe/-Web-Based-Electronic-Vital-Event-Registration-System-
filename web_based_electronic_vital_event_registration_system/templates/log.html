@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Robe Electronics Vital Event</title>
+    <link rel="stylesheet" href="sam2.css">
+	<style>
+	/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Header Styles */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f4f4f4;
+    opacity: 0;
+    animation: fadeInSlideDown 1s ease-in-out forwards;
+}
+
+.logo img {
+    max-width: 100px;
+}
+
+.signup {
+    font-size: 1rem;
+}
+
+.signup-link {
+    color: darkgreen;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Animation Keyframes */
+@keyframes fadeInSlideDown {
+    0% {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Login Container */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background-color: white;
+    margin-top: 50px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    margin: 50px auto;
+    border-radius: 10px;
+    opacity: 0;
+    animation: fadeInSlideUp 1.5s ease-in-out forwards;
+}
+
+/* Animation for Login Form */
+@keyframes fadeInSlideUp {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Login Header */
+.login-header {
+    font-size: 1.5rem;
+    color: rgb(27, 59, 27);
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: fadeInSlideLeft 2s ease-in-out forwards;
+}
+
+.welcome-text {
+    font-size: 1.1rem;
+    color: rgb(27, 59, 27);
+    margin-bottom: 20px;
+    text-align: center;
+    opacity: 0;
+    animation: fadeInSlideLeft 2s ease-in-out forwards;
+    animation-delay: 0.5s;
+}
+
+/* Animation for Headers */
+@keyframes fadeInSlideLeft {
+    0% {
+        transform: translateX(-30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Form Styles */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.login-form label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.login-form input, 
+.login-form select {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.login-btn {
+    padding: 10px;
+    background-color:rgb(27, 59, 27);
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: darkgreen;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-container {
+        width: 90%;
+    }
+}
+
+	</style>
+	<script>
+	document.querySelector('.login-btn').addEventListener('click', function() {
+    this.style.backgroundColor = "#004080";
+    setTimeout(() => {
+        this.style.backgroundColor = "#007bff";
+    }, 200);
+});
+
+	</script>
+</head>
+<body>
+    <!-- Header with Logo and Sign-Up -->
+    <header class="main-header">
+        <div class="logo">
+            <img src="{{url_for('static',filename= 'logo.jpg')}}"  alt="Robe Electronics Logo">
+        </div>
+        <div class="signup">
+            <span>Don't have an account?</span> 
+            <a href="signup.html" class="signup-link">Sign up</a>
+        </div>
+    </header>
+
+    <!-- Main Content: Login Form -->
+    <div class="login-container">
+        <h2 class="login-header">Login</h2>
+        <p class="welcome-text">Welcome to Robe Electronics Vital Event</p>
+
+        <form action="/AC1" method="post" class="login-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="User Name" placeholder="Enter your username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="psw" placeholder="Enter your password" required>
+
+            <label for="role">Select Role:</label>
+            <select id="role" name="Name">
+                <option value="1">Admin</option>
+				<option value="2">CityAdmin</option>
+                <option value="3">keble Manager</option>
+                <option value="5">Registrar</option>
+                <option value="4">Resident</option>
+            </select>
+
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

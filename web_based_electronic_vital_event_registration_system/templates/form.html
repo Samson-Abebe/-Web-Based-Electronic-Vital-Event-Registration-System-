@@ -1,0 +1,84 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+         .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #C1A9A9;
+        }
+        input[type="text"], input[type="date"], input[type="time"], textarea, select {
+            width: calc(100% - 10px);
+            padding: 8px;
+            border: 1px solid #C1A9A9;
+            border-radius: 4px;
+            background-color: #5a5857;
+            color: white;
+            resize: vertical; /* Allow vertical resizing for textarea */
+        }
+        input[type="checkbox"] {
+            margin-right: 10px;
+            accent-color: #C1A9A9; /* Modern browsers support this for checkbox color */
+        }
+        input[type="submit"] {
+            background-color: #C1A9A9;
+            color: #4f4b4a;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #b09a9a;
+        }
+    </style>
+</head>
+<body>
+ 
+  <form action="{{keyy}}" method="post">
+  {% for slss,key in FM.items() :%}
+
+     {% if   key == "1" %}
+            <div class="form-group">
+                <label for="name">{{slss}}</label>
+                <input type="text" id="name" name="{{slss}}" required>
+            </div>
+			 {%endif%}
+			{% if   key == "2" %}
+            <div class="form-group">
+                <label for="date">{{slss}}</label>
+                <input type="date" id="name" name="{{slss}}" required>
+            </div>
+			{%endif%}
+          {% if key is mapping %}
+            <div class="form-group">
+                <label for="country">{{slss}}</label>
+                <select id="country" name="{{slss}}" required>
+				  {% for slsss,keyy in key.items() :%}
+                    <option value="{{keyy}}">{{slsss}}</option>
+                   {%endfor%}
+                    <!-- Add more countries as needed -->
+                </select>
+            </div>
+			{%endif%}
+			{% if   key == "3" %}
+            <div class="form-group">
+                <label for="message">{{slss}}</label>
+                <textarea id="message" name="{{slss}}" rows="4" required></textarea>
+            </div>
+           {%endif%}
+            
+			{%endfor%}
+			<div class="form-group">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+		
+		</body>
+</html>

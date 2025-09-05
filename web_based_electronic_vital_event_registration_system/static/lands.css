@@ -1,0 +1,267 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: whitesmoke;
+  color: #fff;
+  border-radius: 8px;
+}
+
+header .logo img {
+  width: 100px; 
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
+  color: rgb(27, 59, 27);
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+  border-bottom: 2px solid white; 
+}
+
+.intro {
+  text-align: center;
+  color: rgb(27, 59, 27);
+  padding: 50px;
+  background-color: #f0f0f0;
+  animation: fadeIn 5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+  margin: 50px 0;
+}
+
+.card {
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+  text-align: center; 
+}
+
+.card img {
+  width: 80%; 
+  height: auto; 
+  border-radius: 6px;
+}
+.card .learn-more {
+  text-decoration: none;
+  color: rgb(27, 59, 27); 
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.card .learn-more:hover {
+  color: darkgreen; 
+}
+
+.card:hover {
+  transform: scale(1.05);
+ 
+}
+
+.about-feature {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.about-image img {
+  width: 50%; /* Adjust for image width */
+  border-radius: 6px;
+}
+
+.about-text {
+  padding: 30px;
+}
+
+.contact-form, .faqs {
+  width: 100%;
+  padding: 20px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.contact-form input, .contact-form select, .contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+}
+.social-media {
+  display: flex;
+  align-items: center;
+}
+
+.social-media img {
+  width: 30px; /* Set the width of the icons */
+  height: 30px; /* Set the height of the icons */
+  margin-left: 10px; /* Space between icons */
+  cursor: pointer;
+}
+
+.social-media img:hover {
+  opacity: 0.7; /* Optional hover effect */
+}
+
+
+/* FAQs Styling */
+.faq-section {
+  margin: 40px auto;
+  max-width: 1000px; /* Width of the section */
+  padding: 20px;
+  background-color: #f9f9f9; /* Light background for FAQ */
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.faq-section h2 {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif; /* Use Poppins */
+  color: #333;
+}
+
+.faq {
+  margin-bottom: 15px;
+  background-color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.faq:hover {
+  background-color: darkgreen; /* Hover color */
+  color: #fff;
+}
+
+.faq-question {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.faq-answer {
+  font-size: 14px;
+  display: none; /* Hide initially */
+  padding: 10px 0;
+  color: #555;
+}
+
+.faq.open .faq-answer {
+  display: block; /* Show answer when open */
+}
+
+.faq.open {
+  background-color: #1a1a1a;
+  color: #ffffff;
+
+}
+
+ 
+footer {
+  background-color: rgb(27, 59, 27); /* Dark blue background */
+  padding: 20px 0;
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  border-top: 1px solid #ddd; /* Option for better separation */
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 50px;
+}
+
+.footer-info {
+  text-align: left;
+  color: white;
+}
+
+.footer-info p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-social a {
+  margin-left: 15px;
+}
+
+.footer-social img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.footer-social img:hover {
+  transform: scale(1.2); /* Slight zoom effect on hover */
+}
+
+/* To ensure the footer takes up the full width */
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+footer {
+  width: 100%;
+  box-sizing: border-box;
+}

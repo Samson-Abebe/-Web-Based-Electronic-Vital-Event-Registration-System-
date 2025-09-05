@@ -1,0 +1,113 @@
+<style>
+  .checkbox-wrapper-2 .ikxBAC {
+    appearance: none;
+    background-color: #dfe1e4;
+    border-radius: 72px;
+    border-style: none;
+    flex-shrink: 0;
+    height: 20px;
+    margin: 0;
+    position: relative;
+    width: 30px;
+  }
+
+  .checkbox-wrapper-2 .ikxBAC::before {
+    bottom: -6px;
+    content: "";
+    left: -6px;
+    position: absolute;
+    right: -6px;
+    top: -6px;
+  }
+
+  .checkbox-wrapper-2 .ikxBAC,
+  .checkbox-wrapper-2 .ikxBAC::after {
+    transition: all 100ms ease-out;
+  }
+
+  .checkbox-wrapper-2 .ikxBAC::after {
+    background-color: #fff;
+    border-radius: 50%;
+    content: "";
+    height: 14px;
+    left: 3px;
+    position: absolute;
+    top: 3px;
+    width: 14px;
+  }
+
+  .checkbox-wrapper-2 input[type=checkbox] {
+    cursor: default;
+  }
+
+  .checkbox-wrapper-2 .ikxBAC:hover {
+    background-color: #c9cbcd;
+    transition-duration: 0s;
+  }
+
+  .checkbox-wrapper-2 .ikxBAC:checked {
+    background-color: #6e79d6;
+  }
+
+  .checkbox-wrapper-2 .ikxBAC:checked::after {
+    background-color: #fff;
+    left: 13px;
+  }
+
+  .checkbox-wrapper-2 :focus:not(.focus-visible) {
+    outline: 0;
+  }
+
+  .checkbox-wrapper-2 .ikxBAC:checked:hover {
+    background-color: #535db3;
+  }
+  .checkbox-wrapper-2 label {
+  order: 2;
+  text-shadow: 0 0 2px black; 
+   margin-left: 15px;/* Adjust this value as needed */
+ font-weight: 800px;
+ font-size: 20px;
+}
+.checkbox-wrapper-2 {
+  display: flex;
+  align-items: center; /* Align items vertically in the center */
+}
+  
+
+</style>
+<body>
+  
+    {% for slsss,keyyy in slss[sls].items() :%}
+    {%if keyyy=="1"%}
+  <div class="checkbox-wrapper-2">
+    <input type="checkbox" class="sc-gJwTLC ikxBAC" id="myCheckbox" value="{{slsss}}" name="lname"  checked="checked" onclick="sendData1({{slsss}},{{keyyy}})">
+
+    </div>
+	{%endif%}
+	
+	{%if keyyy=="Null"%}
+	<p>Null</p>
+	{%endif%}
+    {%if keyyy=="0"%}
+    <div class="checkbox-wrapper-2">
+    <input type="checkbox" class="sc-gJwTLC ikxBAC" id="myCheckbox" value="{{slsss}}" name="lname" onclick="sendData1({{slsss}},{{keyyy}})" >
+
+    </div>
+    {%endif%}
+    {%endfor%}
+  </div>
+   
+     <script>
+        async function sendData1(X,Y) {
+            const response = await fetch('http://localhost:5000/api/data/stu', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                 body: JSON.stringify({ X: X, Y: Y })
+            });
+
+     location.reload();
+        }
+    </script>
+</body>
