@@ -27,3 +27,40 @@ This system is designed to **improve accessibility, reduce paperwork, and enhanc
 
 ## 📂 Project Structure  
 
+---
+
+## 📸 Screenshots  
+
+### 🏠 Landing Page  
+![Landing Page](pic/p1.png)  
+![Landing Page](pic/p2.png)  
+![Landing Page](pic/p3.png)  
+
+### 🔐 Login Page  
+![Login Page](pic/p4.png)  
+
+### 📊 Admin Dashboard  
+![Admin Dashboard](pic/p5.png)  
+
+### 👥 User & Account Management  
+![Registered Accounts](pic/p6.png)  
+![Control User Accounts](pic/p7.png)  
+![User Account Page](pic/p8.png)  
+
+### 📝 Register Event Data  
+![Register Event Data](pic/p9.png)  
+
+### 📑 Reports & Approval  
+![Report Page](pic/p10.png)  
+![Generate Report](pic/p11.png)  
+![Resident Status Check](pic/p12.png)  
+
+---
+
+## ⚙️ Installation  
+
+1. Clone the repository:  
+   ```bash
+   git clone https://github.com/your-username/vital-event-registration.git
+   cd vital-event-registration
+
